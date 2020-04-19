@@ -22,7 +22,7 @@ spec:
               when: "sum(cpuCapacity) < 2"
               message: It is recommended to have at least 2 cores available in the cluster
           - pass:
-              message: There is at least 1 core in the cluster
+              message: There is at least 2 cores in the cluster
     - nodeResources:
         checkName: Every node in the cluster must have at least 2Gi of memory
         outcomes:
