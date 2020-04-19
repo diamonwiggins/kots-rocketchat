@@ -20,10 +20,12 @@ spec:
         - name: mongo_root_password
           type: password
           title: MongoDB Root Password
+          default: "thisissapassword"
           required: true
         - name: mongo_rocketchat_password
           type: password
           title: MongoDB RocketChat Password
+          default: "thisissapassword"
           required: true
         - name: mongo_volume_size
           type: text
