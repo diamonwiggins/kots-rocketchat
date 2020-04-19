@@ -8,6 +8,10 @@ This repository houses all the config needed to deploy a RocketChat KOTS applian
 curl -sSL https://k8s.kurl.sh/rocketchat | sudo bash
 ```
 2. Follow the instructions provided at the completion of the installation script
+3. Wait for the app to start successfully, and then visit it via https over port 443 with the DNS hostname you specified on the Config page.
+```bash
+https://your-dns.example.com
+```
 
 ## Preflight Checks
 Checks that must pass before the KOTS appliance can come online
