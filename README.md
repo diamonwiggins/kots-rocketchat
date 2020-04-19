@@ -1,6 +1,8 @@
 # RocketChat KOTS Appliance
 This repository houses all the config needed to deploy a RocketChat KOTS appliance
 
+Once the KOTS appliance has been successfully deployed, the app will be available via https over the standard port.(eg. https://your-dns.example.com)
+
 ## Preflight Checks
 Checks that must pass before the KOTS appliance can come online
 - K8s cluster version must be higher than `1.15.0`
