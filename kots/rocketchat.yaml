@@ -1,0 +1,39 @@
+apiVersion: kots.io/v1beta1
+kind: HelmChart
+metadata:
+  name: rocketchat
+spec:
+  chart:
+    name: rocketchat
+    chartVersion: 2.7.0
+
+  values:
+    image:
+      repository: docker.io/rocketchat/rocket.chat
+      tag: 2.4.9
+    
+    host: 'repl{{ ConfigOption `rocketchat_dns_hostname`}}'
+    
+    mongodb:
+      enabled: true
+    
+      mongodbRootPassword: 'repl{{ ConfigOption `mongo_root_password`}}'
+    
+      mongodbUsername: rocketchat
+      mongodbPassword: 'repl{{ ConfigOption `mongo_rocketchat_password`}}'
+      
+      mongodbDatabase: rocketchat
+    
+      replicaSet:
+        enabled: true
+    
+      persistence:
+        enabled: true
+        storageClass: "default"
+        accessMode: ReadWriteOnce
+        size: 'repl{{ ConfigOption `mongo_volume_size`}}Gi'
+  # builder values provide a way to render the chart with all images
+  # and manifests. this is used in replicated to create airgap packages
+  builder:
+    mongodbRootPassword: 'thisissapassword'
+    mongodbPassword: 'thisissapassword'

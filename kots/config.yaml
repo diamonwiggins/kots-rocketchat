@@ -1,0 +1,32 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: rocketchat-config
+spec:
+  groups:
+    - name: rocketchat
+      title: RocketChat Settings
+      description: Configuration for RocketChat
+      items:
+        - name: rocketchat_dns_hostname
+          type: text
+          title: RocketChat DNS Hostname
+          help_text: RocketChat DNS Hostname eg.(rocketchat.example.com)
+          required: true
+    - name: mongo
+      title: MongoDB Settings
+      description: Configuration for MongoDB
+      items:
+        - name: mongo_root_password
+          type: password
+          title: MongoDB Root Password
+          required: true
+        - name: mongo_rocketchat_password
+          type: password
+          title: MongoDB RocketChat Password
+          required: true
+        - name: mongo_volume_size
+          type: text
+          title: MongoDB Volume Size
+          description: Size of the volume attached to the MongoDB pod. Unit is GB(eg. 100 = 100GB) 
+          required: true

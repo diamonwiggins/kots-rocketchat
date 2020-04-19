@@ -1,0 +1,13 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: rocketchat
+spec:
+  title: RocketChat
+  icon: https://github.com/cncf/artwork/blob/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
+  statusInformers:
+    - deployment/rocketchat-rocketchat
+    - statefulset/rocketchat-mongodb-primary
+    - service/rocketchat-mongodb
+    - service/rocketchat-rocketchat
+    - service/rocketchat-mongodb-headless

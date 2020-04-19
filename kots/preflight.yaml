@@ -1,0 +1,47 @@
+apiVersion: troubleshoot.replicated.com/v1beta1
+kind: Preflight
+metadata:
+  name: rocketchat-preflight-checks
+spec:
+  analyzers:
+    - clusterVersion:
+        outcomes:
+          - fail:
+              when: "< 1.15.0"
+              message: The application requires at Kubernetes 1.15.0 or later.
+              uri: https://www.kubernetes.io
+          - pass:
+              message: Your cluster meets the recommended and required versions of Kubernetes.
+    - nodeResources:
+        checkName: Total CPU Cores in the cluster is 2 or greater
+        outcomes:
+          - fail:
+              when: "sum(cpuCapacity) < 1"
+              message: The cluster must contain at least 1 core
+          - warn:
+              when: "sum(cpuCapacity) < 2"
+              message: It is recommended to have at least 2 cores available in the cluster
+          - pass:
+              message: There is at least 1 core in the cluster
+    - nodeResources:
+        checkName: Every node in the cluster must have at least 2Gi of memory
+        outcomes:
+          - fail:
+              when: "min(memoryCapacity) < 1Gi"
+              message: All nodes must have at least 1GB of memory
+          - warn:
+              when: "min(memoryCapacity) < 2Gi"
+              message: It is recommended to have at least 2GB of RAM per node
+          - pass:
+              message: All nodes have at least 2GB of memory
+    - nodeResources:
+        checkName: Every node in the cluster must have at least 20GB of disk capacity
+        outcomes:
+          - fail:
+              when: 'min(ephemeralStorageCapacity) < 20Gi'
+              message: Every node in the cluster must have at least 20GB of disk capacity
+          - warn:
+              when: 'min(ephemeralStorageCapacity) < 40Gi'
+              message: It is recommended to have at least 40GB of disk capacity on each node in the cluster
+          - pass:
+              message: All nodes have at least 20GB of disk capacity
