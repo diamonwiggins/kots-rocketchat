@@ -3,7 +3,7 @@ This repository houses all the config needed to deploy a RocketChat KOTS applian
 
 ## Installation Steps
 
-1. Downlaod and run the cluster installation script
+1. Download and run the cluster installation script
 ```bash
 curl -sSL https://k8s.kurl.sh/rocketchat | sudo bash
 ```
