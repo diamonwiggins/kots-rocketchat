@@ -13,7 +13,7 @@ spec:
           - pass:
               message: Your cluster meets the recommended and required versions of Kubernetes.
     - nodeResources:
-        checkName: Total CPU Cores in the cluster is 2 or greater
+        checkName: Total CPU Cores in the cluster is 1 or greater
         outcomes:
           - fail:
               when: "sum(cpuCapacity) < 1"
@@ -24,7 +24,7 @@ spec:
           - pass:
               message: There is at least 2 cores in the cluster
     - nodeResources:
-        checkName: Every node in the cluster must have at least 2Gi of memory
+        checkName: Every node in the cluster must have at least 1Gi of memory
         outcomes:
           - fail:
               when: "min(memoryCapacity) < 1Gi"
