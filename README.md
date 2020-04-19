@@ -1,7 +1,13 @@
 # RocketChat KOTS Appliance
 This repository houses all the config needed to deploy a RocketChat KOTS appliance
 
-Once the KOTS appliance has been successfully deployed, the app will be available via https over the standard port.(eg. https://your-dns.example.com)
+## Installation Steps
+
+1. Downlaod and run the cluster installation script
+```bash
+curl -sSL https://k8s.kurl.sh/rocketchat | sudo bash
+```
+2. Follow the instructions provided at the completion of the installation script
 
 ## Preflight Checks
 Checks that must pass before the KOTS appliance can come online
@@ -12,14 +18,14 @@ Checks that must pass before the KOTS appliance can come online
 
 ## Config Options
 - RocketChat DNS Hostname
-- Mongo Root Password
-- Mongo RocketChat Password
-- Mongo Volume Size
+- MongoDB Root Password
+- MongoDB RocketChat Password
+- MongoDB Volume Size
 
 ## Support Bundle
-- Retrive cluster info and resources
+- Retrieve cluster info and resources
 - Retrieve RocketChat API health status
-- Retrive MongoDB version
+- Retrieve MongoDB version
 - Ping Google DNS address
 - Ping Google IP Address
 
