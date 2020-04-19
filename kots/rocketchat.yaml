@@ -5,7 +5,7 @@ metadata:
 spec:
   chart:
     name: rocketchat
-    chartVersion: 2.7.0
+    chartVersion: 2.8.0
 
   values:
     image:
